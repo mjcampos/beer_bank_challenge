@@ -45,28 +45,26 @@ class PopUpDialog extends Component {
 
 		return (
 			<Modal show={show} onHide={() => this.props.handleClose()} size="lg">
-				<Modal.Header>
-					<Modal.Body>
-						<Row>
-							<Col>
-								<Image src={beer.image_url} fluid/>
-							</Col>
+				<Modal.Body>
+					<Row>
+						<Col>
+							<Image src={beer.image_url} fluid/>
+						</Col>
 
-							<Col>
-								<h2>{beer.name}</h2>
-								<p>{beer.tagline}</p>
-								<h3>IBU: {beer.ibu} | ABV: {beer.abv} | EBC: {beer.ebc}</h3>
-								<p>{beer.description}</p>
+						<Col>
+							<h2>{beer.name}</h2>
+							<p>{beer.tagline}</p>
+							<h3>IBU: {beer.ibu} | ABV: {beer.abv} | EBC: {beer.ebc}</h3>
+							<p>{beer.description}</p>
 
-								{beer.food_pairing.length ? this.displayFoodParingList(beer.food_pairing) : null}
-							</Col>
-						</Row>
-					</Modal.Body>
+							{beer.food_pairing.length ? this.displayFoodParingList(beer.food_pairing) : null}
+						</Col>
+					</Row>
+				</Modal.Body>
 
-					<Modal.Footer>
-						{recommendations.length ? this.displayRecommendations() : null}
-					</Modal.Footer>
-				</Modal.Header>
+				<Modal.Footer>
+					{recommendations.length ? this.displayRecommendations() : null}
+				</Modal.Footer>
 			</Modal>
 		);
 	}

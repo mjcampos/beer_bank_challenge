@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import GridList from './GridList';
 
 class Favorites extends Component {
 	render() {
 		return (
-			<div>Favorites.js</div>
+			<div>
+				<GridList beers={this.props.favorites}/>
+			</div>
 		);
 	}
 }
 
-export default Favorites;
+var mapStateToProps = state => state;
+
+export default connect(mapStateToProps, null)(Favorites);

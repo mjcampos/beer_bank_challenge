@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import GridList from './GridList';
 
 class Home extends Component {
 	render() {
 		return (
-			<div>Home.js</div>
+			<div>
+				<GridList beers={this.props.beers}/>
+			</div>
 		);
 	}
 }
 
-export default Home;
+var mapStateToProps = state => state;
+
+export default connect(mapStateToProps, null)(Home);

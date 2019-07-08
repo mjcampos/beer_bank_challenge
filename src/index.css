@@ -6,3 +6,18 @@
 #Navbar > *, #Navbar a {
 	color: white;
 }
+
+#GridList {
+	margin-top: 1em;
+}
+.gridItem {
+	padding: 3em;
+}
+
+.star {
+	float: right;
+}
+
+.starSelected {
+	color: yellow;
+}

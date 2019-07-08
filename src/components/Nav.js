@@ -27,7 +27,6 @@ class Nav extends Component {
 						<Navbar.Brand><Link to="/">Home</Link></Navbar.Brand>
 						<Navbar.Brand><Link to="/favorites">Favorites</Link></Navbar.Brand>
 						
-						
 					</Navbar.Collapse>
 				</Navbar>
 

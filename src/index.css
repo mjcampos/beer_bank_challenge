@@ -1,0 +1,8 @@
+#Navbar {
+	background-color: orange;
+	padding-bottom: 2em;
+}
+
+#Navbar > * {
+	color: white;
+}

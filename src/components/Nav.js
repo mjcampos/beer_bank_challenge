@@ -1,8 +1,24 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {Navbar, Container, Row, Col, InputGroup, FormControl} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import {searchForBeers, getAllBeers} from '../actions/beers';
 
 class Nav extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			beer: ""
+		}
+	}
+
+	handleChange = beer => {
+		this.setState({
+			beer
+		}, () => this.state.beer.length ? this.props.searchForBeers(this.state.beer) : this.props.getAllBeers());
+	}
+
 	render() {
 		return (
 			<div id="Navbar">
@@ -23,7 +39,9 @@ class Nav extends Component {
 							<p>Find Your Favorite Beer Here</p>
 							<InputGroup>
 								<FormControl
+									value={this.state.beer}
 									placeholder="Search for beer name"
+									onChange={e => this.handleChange(e.target.value)}
 								/>
 							</InputGroup>
 						</Col>
@@ -34,4 +52,6 @@ class Nav extends Component {
 	}
 }
 
-export default Nav;
+var mapStateToProps = state => state;
+
+export default connect(mapStateToProps, {searchForBeers, getAllBeers})(Nav);

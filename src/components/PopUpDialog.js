@@ -19,20 +19,24 @@ class PopUpDialog extends Component {
 		var {recommendations} = this.props;
 
 		return (
-			<Row>
-				{recommendations.map(recommendation => (
-					<Col>
-						<Card key={recommendation.id}>
-							<Card.Img src={recommendation.image_url}/>
-						</Card>
+			<div>
+				<h4>You Might Also Like:</h4>
+				
+				<Row>
+					{recommendations.map(recommendation => (
+						<Col key={recommendation.id}>
+							<Card>
+								<Card.Img src={recommendation.image_url}/>
+							</Card>
 
-						<Card.Body className="text-center">
-							<Card.Title>{recommendation.name}</Card.Title>
-							<Card.Text>{recommendation.tagline}</Card.Text>
-						</Card.Body>
-					</Col>
-				))}
-			</Row>
+							<Card.Body className="text-center">
+								<Card.Title>{recommendation.name}</Card.Title>
+								<Card.Text>{recommendation.tagline}</Card.Text>
+							</Card.Body>
+						</Col>
+					))}
+				</Row>
+			</div>
 		);
 	}
 

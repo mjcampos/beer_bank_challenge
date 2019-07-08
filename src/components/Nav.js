@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Navbar, Container, Row, Col, InputGroup, FormControl} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 class Nav extends Component {
 	render() {
@@ -7,8 +8,10 @@ class Nav extends Component {
 			<div id="Navbar">
 				<Navbar>
 					<Navbar.Collapse className="justify-content-end">
-						<p>Home</p>
-						<p>Favorites</p>
+						<Navbar.Brand><Link to="/">Home</Link></Navbar.Brand>
+						<Navbar.Brand><Link to="/favorites">Favorites</Link></Navbar.Brand>
+						
+						
 					</Navbar.Collapse>
 				</Navbar>
 

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Modal, Row, Col, Image} from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {Modal, Row, Col, Image, Card} from 'react-bootstrap';
 
 class PopUpDialog extends Component {
 	displayFoodParingList = food_pairing => {
@@ -14,8 +15,29 @@ class PopUpDialog extends Component {
 		);
 	}
 
+	displayRecommendations = () => {
+		var {recommendations} = this.props;
+
+		return (
+			<Row>
+				{recommendations.map(recommendation => (
+					<Col>
+						<Card key={recommendation.id}>
+							<Card.Img src={recommendation.image_url}/>
+						</Card>
+
+						<Card.Body className="text-center">
+							<Card.Title>{recommendation.name}</Card.Title>
+							<Card.Text>{recommendation.tagline}</Card.Text>
+						</Card.Body>
+					</Col>
+				))}
+			</Row>
+		);
+	}
+
 	render() {
-		var {show, beer} = this.props;
+		var {show, beer, recommendations} = this.props;
 
 		return (
 			<Modal show={show} onHide={() => this.props.handleClose()} size="lg">
@@ -36,10 +58,16 @@ class PopUpDialog extends Component {
 							</Col>
 						</Row>
 					</Modal.Body>
+
+					<Modal.Footer>
+						{recommendations.length ? this.displayRecommendations() : null}
+					</Modal.Footer>
 				</Modal.Header>
 			</Modal>
 		);
 	}
 }
 
-export default PopUpDialog;
+var mapStateToProps = state => state;
+
+export default connect(mapStateToProps, null)(PopUpDialog);

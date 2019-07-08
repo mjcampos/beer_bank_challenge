@@ -3,6 +3,6 @@
 	padding-bottom: 2em;
 }
 
-#Navbar > * {
+#Navbar > *, #Navbar a {
 	color: white;
 }
